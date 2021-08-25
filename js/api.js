@@ -8,3 +8,21 @@ function loadData() {
         .then((response) => response.json())
         .then((data) => console.log("loaded data", data));
 }
+
+function loadUsers() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+        .then((response) => response.json())
+        .then((users) => displayUserName(users));
+}
+
+function displayUserName(users) {
+    document.getElementById("title").innerText = "Users List";
+
+    const ul = document.getElementById("user-list");
+    users.forEach((user) => {
+        // console.log(user.name);
+        const li = document.createElement("li");
+        li.innerText = user.name;
+        ul.appendChild(li);
+    });
+}
