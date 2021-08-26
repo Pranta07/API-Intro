@@ -17,12 +17,12 @@ function loadUsers() {
 
 function displayUserName(users) {
     document.getElementById("title").innerText = "Users List";
-
     const ul = document.getElementById("user-list");
     users.forEach((user) => {
         // console.log(user.name);
         const li = document.createElement("li");
-        li.innerText = user.name;
+        li.innerText = `Name: ${user.name}
+        Email: ${user.email}`;
         ul.appendChild(li);
     });
 }
